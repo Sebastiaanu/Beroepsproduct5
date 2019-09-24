@@ -6,6 +6,8 @@
 package beroepsproduct5;
 
 import Beroepsproduct5.View.Overzicht;
+import beroepsproduct5.View.Bestellen;
+import beroepsproduct5.View.Betalen;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +24,11 @@ import javafx.scene.layout.Pane;
  */
 public class BpMenu extends MenuBar{
     Menu overzicht = new Menu("Overzicht");
+    Menu bestellen = new Menu ("Bestellen");
+    Menu betalen = new Menu ("Betalen");
     MenuItem overzichtItem = new MenuItem("Overzicht");
+    MenuItem bestellenItem = new MenuItem ("Bestellen");
+    MenuItem betalenItem = new MenuItem ("Betalen");
     
     public BpMenu (Pane p){
         
@@ -34,8 +40,20 @@ public class BpMenu extends MenuBar{
                 Logger.getLogger(BpMenu.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
+         bestellenItem.setOnAction(e ->{
+            p.getChildren().clear();
+            new Bestellen (p);
+        }); 
+         betalenItem.setOnAction(e ->{
+            p.getChildren().clear();
+            new Betalen(p);
+        });
+         
         overzicht.getItems().addAll(overzichtItem);
-        this.getMenus().addAll(overzicht);
+        bestellen.getItems().addAll(bestellenItem);
+        betalen.getItems().addAll(betalenItem);
+       
+        this.getMenus().addAll(overzicht, bestellen, betalen);
         p.getChildren().addAll(this);
     }
 }
