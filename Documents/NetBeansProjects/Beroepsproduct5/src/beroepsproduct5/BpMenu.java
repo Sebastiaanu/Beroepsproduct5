@@ -5,7 +5,7 @@
  */
 package beroepsproduct5;
 
-import Beroepsproduct5.View.Overzicht;
+import beroepsproduct5.View.Overzicht;
 import beroepsproduct5.View.Bestellen;
 import beroepsproduct5.View.MachineLearning;
 import java.sql.SQLException;
@@ -25,20 +25,16 @@ import javafx.scene.layout.Pane;
 public class BpMenu extends MenuBar{
     Menu overzicht = new Menu("Overzicht");
     Menu bestellen = new Menu ("Bestellen");
-    Menu betalen = new Menu ("Betalen");
+    Menu betalen = new Menu ("Machine Learning");
     MenuItem overzichtItem = new MenuItem("Overzicht");
     MenuItem bestellenItem = new MenuItem ("Bestellen");
-    MenuItem betalenItem = new MenuItem ("Betalen");
+    MenuItem betalenItem = new MenuItem ("Selecteer");
     
     public BpMenu (Pane p){
         
         overzichtItem.setOnAction(e ->{
             p.getChildren().clear();
-            try {
-                new Overzicht(p);
-            } catch (SQLException ex) {
-                Logger.getLogger(BpMenu.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            new Overzicht(p);
         });
          bestellenItem.setOnAction(e ->{
             p.getChildren().clear();
