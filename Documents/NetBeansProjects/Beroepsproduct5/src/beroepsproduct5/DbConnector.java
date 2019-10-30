@@ -18,8 +18,8 @@ public class DbConnector {
 		Connection conn = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String strConnString = ("jdbc:mysql://localhost/bp5db?useSSL=false");
-			conn = DriverManager.getConnection(strConnString, "root", "Vissen1996");
+			String strConnString = ("jdbc:mysql://145.49.126.128/bp5db?useSSL=false");
+			conn = DriverManager.getConnection(strConnString, "newuser", "password");
 		} catch (Exception e) {
 			// error
 			System.out.println(e.getMessage());
